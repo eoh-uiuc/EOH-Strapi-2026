@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "exhibits",
+  "info": {
+    "singularName": "exhibit",
+    "pluralName": "exhibits",
+    "displayName": "Exhibit"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Exhibit_Name": {
+      "type": "string"
+    },
+    "Exhibit_Number": {
+      "type": "integer"
+    },
+    "Exhibit_Building": {
+      "type": "string"
+    },
+    "VisGuide_Description": {
+      "type": "text"
+    },
+    "Exhibit_Location": {
+      "type": "string"
+    },
+    "Department": {
+      "type": "string"
+    },
+    "Exhibit_Organization": {
+      "type": "string"
+    },
+    "Intended_Audience": {
+      "type": "enumeration",
+      "enum": [
+        "Grade School",
+        "High School",
+        "Adults"
+      ]
+    },
+    "Tags": {
+      "type": "component",
+      "component": "shared.tags",
+      "repeatable": false
+    }
+  }
+}
