@@ -563,6 +563,36 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiEventEvent extends Struct.CollectionTypeSchema {
+  collectionName: 'events';
+  info: {
+    displayName: 'Event';
+    pluralName: 'events';
+    singularName: 'event';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
+      Schema.Attribute.Private;
+    location: Schema.Attribute.String;
+    occurences: Schema.Attribute.Component<'shared.occurences-component', true>;
+    picture: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    publishedAt: Schema.Attribute.DateTime;
+    shortTitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiExhibitExhibit extends Struct.CollectionTypeSchema {
   collectionName: 'exhibits';
   info: {
@@ -581,7 +611,7 @@ export interface ApiExhibitExhibit extends Struct.CollectionTypeSchema {
     Exhibit_Building: Schema.Attribute.String;
     Exhibit_Location: Schema.Attribute.String;
     Exhibit_Name: Schema.Attribute.String;
-    Exhibit_Number: Schema.Attribute.Integer;
+    Exhibit_Number: Schema.Attribute.Integer & Schema.Attribute.Unique;
     Exhibit_Organization: Schema.Attribute.String;
     Intended_Audience: Schema.Attribute.Enumeration<
       ['Grade School', 'High School', 'Adults']
@@ -1148,6 +1178,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
+      'api::event.event': ApiEventEvent;
       'api::exhibit.exhibit': ApiExhibitExhibit;
       'api::global.global': ApiGlobalGlobal;
       'plugin::content-releases.release': PluginContentReleasesRelease;

@@ -11,6 +11,20 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedOccurencesComponent extends Struct.ComponentSchema {
+  collectionName: 'components_shared_occurences_components';
+  info: {
+    displayName: 'occurencesComponent';
+  };
+  attributes: {
+    colIndex: Schema.Attribute.Integer;
+    endTime: Schema.Attribute.DateTime &
+      Schema.Attribute.DefaultTo<'2026-04-09T22:00:00.000Z'>;
+    startTime: Schema.Attribute.DateTime &
+      Schema.Attribute.DefaultTo<'2026-04-09T22:00:00.000Z'>;
+  };
+}
+
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
@@ -186,6 +200,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.media': SharedMedia;
+      'shared.occurences-component': SharedOccurencesComponent;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_shared_occurences_components",
+  "info": {
+    "displayName": "occurencesComponent"
+  },
+  "options": {},
+  "attributes": {
+    "startTime": {
+      "type": "datetime",
+      "default": "2026-04-09T22:00:00.000Z"
+    },
+    "endTime": {
+      "type": "datetime",
+      "default": "2026-04-09T22:00:00.000Z"
+    },
+    "colIndex": {
+      "type": "integer"
+    }
+  },
+  "config": {}
+}

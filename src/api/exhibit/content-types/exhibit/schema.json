@@ -15,7 +15,8 @@
       "type": "string"
     },
     "Exhibit_Number": {
-      "type": "integer"
+      "type": "integer",
+      "unique": true
     },
     "Exhibit_Building": {
       "type": "string"
